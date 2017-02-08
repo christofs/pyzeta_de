@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Quantitative Analyse</title>
+<title>pyzeta</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -35,11 +35,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-markdown>
 <script type="text/template">
-# Quantitative Analyse
+# Kontrastive Analyse<br/> mit Zeta
 <hr/>
 <br/>
 <br/>
-<p><b>Einführung in die Digital Humanities</b><br/>2. Februar 2017</p>
+<p>Februar 2017</p>
 <br/>
 <hr/>
 <p>Christof Schöch<br/>(Computerphilologie / CLiGS, Universität Würzburg)</p>
@@ -47,149 +47,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-## Überblick
-1. Statistische Grundlagen  <!-- .element: class="fragment" data-fragment-index="1" -->
-2. Kontrastive Analyse  <!-- .element: class="fragment" data-fragment-index="2" -->
-4. Maschinelles Lernen: Klassifikation  <!-- .element: class="fragment" data-fragment-index="3" -->
-3. Maschinelles Lernen: Clustering  <!-- .element: class="fragment" data-fragment-index="4" -->
-</script>
-</section>
-
 <section>
 
-<section data-markdown>
-<script type="text/template">
-# 1. Statistische Grundlagen
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Merkmalserhebung
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Beispieltext (Doyle)
-<small>
-
-Sherlock Holmes took his bottle from the corner of the mantel-piece and his hypodermic syringe from its neat morocco case. With his long, white, nervous fingers he adjusted the delicate needle, and rolled back his left shirt-cuff. For some little time his eyes rested thoughtfully upon the sinewy forearm and wrist all dotted and scarred with innumerable puncture-marks. Finally he thrust the sharp point home, pressed down the tiny piston, and sank back into the velvet-lined arm-chair with a long sigh of satisfaction.
-
-Three times a day for many months I had witnessed this performance, but custom had not reconciled my mind to it. On the contrary, from day to day I had become more irritable at the sight, and my conscience swelled nightly within me at the thought that I had lacked the courage to protest. Again and again I had registered a vow that I should deliver my soul upon the subject, but there was that in the cool, nonchalant air of my companion which made him the last man with whom one would care to take anything approaching to a liberty. His great powers, his masterly manner, and the experience which I had had of his many extraordinary qualities, all made me diffident and backward in crossing him.
-
-</small>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Types und Token
-* Begriffe  <!-- .element: class="fragment" data-fragment-index="1" -->
-    * Token: jede einzelne Wortform ist ein Token
-    * Type: jede unterschiedliche Wortform ist ein Type
-* Beispiel  <!-- .element: class="fragment" data-fragment-index="2" -->
-    * <em>A rose is a rose is a rose.</em>
-    * 9 Token  (A, rose, is, a, rose, is, a, rose, .)
-    * 5 Types (A, rose, is, a, .)
-* Allgemeiner <!-- .element: class="fragment" data-fragment-index="3" -->
-	* Token = Untersuchungseinheit: Wort, Satz, Objekt in Bild, Einstellung im Film, etc. 
-	* Type = Klassen von Token: bestimmte Eigenschaften von bestimmten Tokens 
-</script>
-</section>
-
-
-<section data-markdown>
-<script type="text/template">
-## Texte: Typische Häufigkeitsverteilung
-<p><img height="500" src="img/doyle_absolute-counts-plot.png"></img></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Doyle vs. Zipf
-<p><img height="500" src="img/doyle_zipf+zipf.svg"></img></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Merkmalsmatrix
-<p><a href="img/merkmalsmatrix.png"><img height="500" src="img/merkmalsmatrix.png"></img></a></p>
-</script>
-</section>
-
-
-<section data-markdown>
-<script type="text/template">
-## Basisoperationen
-* Summen über Spalten oder Zeilen <!-- .element: class="fragment" data-fragment-index="1" -->
-* Absolute und relative Häufigkeiten <!-- .element: class="fragment" data-fragment-index="2" -->
-* Maße der zentralen Tendenz <!-- .element: class="fragment" data-fragment-index="3" -->
-    * Mittelwert
-    * Median
-* Streuungsmaße <!-- .element: class="fragment" data-fragment-index="4" -->
-    * Spannweite
-    * Standardabweichung   
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Standardabweichung: Berechnung
-<br/>
-<p><img height="200" src="img/Population-stddev.png"></img></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Normalisierung und Standardisierung
-<p><img height="500" src="img/Abb1_Worthäufigkeiten_oben.svg"></img></p>
-<p>(Relative Häufigkeiten)</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Mittelwert-Normalisierung
-<p><img height="500" src="img/Abb1_Worthäufigkeiten_mitte.svg"></img></p>
-<p>(Jeder Wert minus Mittelwert des Types)</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Z-Scores
-<p><img height="500" src="img/Abb1_Worthäufigkeiten_unten.svg"></img></p>
-<p>(z-score der Werte)</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Z-Score: Berechnung
-<br/>
-<p><img height="200" src="img/ZFormula.jpg"></img></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Zwischenbilanz
-* Deskriptive (univariate) Statistik (Kennwerte) <!-- .element: class="fragment" data-fragment-index="1" -->
-* Multivariate Statistik (Korrelation, Regression) <!-- .element: class="fragment" data-fragment-index="2" -->
-* Inferenz-Statistik (Hypothesen-Prüfung) <!-- .element: class="fragment" data-fragment-index="3" -->
-</script>
-</section>
-
-
-
-</section>
-<section>
 
 <section data-markdown>
 <script type="text/template">
@@ -200,14 +59,15 @@ Three times a day for many months I had witnessed this performance, but custom h
 <section data-markdown>
 <script type="text/template">
 ## Grundidee: Vergleich
+<br/>
 * Gleichrangige Partitionen <!-- .element: class="fragment" data-fragment-index="1" -->
-	* Zwei Autoren: Shakespeare vs. Marlowe
-	* Zwei Gattungen: Tragödien vs. Komödien
-	* Zwei Epochen: Klassik vs. Romantik
+    * Zwei Autoren: Shakespeare vs. Marlowe
+    * Zwei Gattungen: Tragödien vs. Komödien
+    * Zwei Epochen: Klassik vs. Romantik
 * Unterschiedliche Partitionen <!-- .element: class="fragment" data-fragment-index="2" --> 
-	* Tragikomödien vs. alle übrigen Dramengattungen 
-	* Ein Roman vs. das gesamte Romanwerk des Autors  
-	* Autor vs. Referenzkorpus  
+    * Tragikomödien vs. alle übrigen Dramengattungen 
+    * Ein Roman vs. das gesamte Romanwerk des Autors  
+    * Autor vs. Referenzkorpus  
 </script>
 </section>
 
@@ -215,114 +75,110 @@ Three times a day for many months I had witnessed this performance, but custom h
 <script type="text/template">
 ## Verhältnis der relativen Häufigkeiten
 <br/>
-<p><img height="300" src="img/0_zeta1.png"></img></p>
+<p><img height="200" src="img/0_zeta1.png"></img></p>
 * Z = Zielpartition <!-- .element: class="fragment" data-fragment-index="1" --> 
 * V = Vergleichspartition <!-- .element: class="fragment" data-fragment-index="2" --> 
 * rfi = relative frequency von Wort i <!-- .element: class="fragment" data-fragment-index="3" --> 
 </script>
 </section>
 
+
+<section data-markdown>
+<script type="text/template">
+## Schwächen und Alternativen
+<br/>
+* Berücksichtigt die Verteilung nicht <!-- .element: class="fragment" data-fragment-index="1" --> 
+    * t-Test berücksichtigt Standardabweichung, nimmt aber Normalverteilung an <!-- .element: class="fragment" data-fragment-index="2" --> 
+    * Rangsummentest berücksichtigt Verteilung, keine Annahme der Normalverteilung <!-- .element: class="fragment" data-fragment-index="3" --> 
+* Es kann kein Signifikanztest berechnet werden <!-- .element: class="fragment" data-fragment-index="4" --> 
+    * t-Test und Rangsummentest erlauben dies <!-- .element: class="fragment" data-fragment-index="5" --> 
+
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## Merkmalsmatrix
+<p><a href="img/merkmalsmatrix.png"><img height="500" src="img/merkmalsmatrix.png"></img></a></p>
+<p>(Conan Doyle-Sammlung)</p>
+</script>
+</section>
+
+
+
 <section data-markdown>
 <script type="text/template">
 ## Zeta-Maß (1: document proportions)
 <br/>
-<p><img height="300" src="img/2_zeta2.png"></img></p>
-* dfi = document frequency von Wort i <!-- .element: class="fragment" data-fragment-index="1" --> 
-* n = Anzahl der Dokumente <!-- .element: class="fragment" data-fragment-index="2" --> 
+<p><img height="200" src="img/2_zeta2.png"></img></p>
+* Bilden kurzer Textsegmente <!-- .element: class="fragment" data-fragment-index="1" --> 
+* dfi = document frequency von Wort i <!-- .element: class="fragment" data-fragment-index="2" --> 
+* n = Anzahl der Segmente <!-- .element: class="fragment" data-fragment-index="3" --> 
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Zeta-Maß (2)
+## Zeta-Maß (2: Substraktion)
 <br/>
-<p><img height="300" src="img/2_zeta3.png"></img></p>
+<p><img height="200" src="img/2_zeta3.png"></img></p>
 <p>Zeta: einfache Subtraktion</p>
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Zeta: grafische Darstellung
+## Implementierung: oppose() in stylo
 <p><a href="img/zeta2_Craig_nicer.png"><img height="500" src="img/zeta2_Craig_nicer.png"></img></a></p>
-<p>(Doyle: andere Romane vs. Detektivromane)</p>
+<p><a href="https://sites.google.com/site/computationalstylistics/">sites.google.com/site/computationalstylistics/</a></p>
 </script>
 </section>
 
-<!--
 <section data-markdown>
 <script type="text/template">
-## Zeta: grafische Darstellung
+## Implementierung: pyzeta
 <p><a href="img/zetascores_comedie-tragedie_1000-lemmata-all.svg"><img height="500" src="img/zetascores_comedie-tragedie_1000-lemmata-all.svg"></img></a></p>
+<p><a href="https://github.com/cligs/pyzeta">github.com/cligs/pyzeta</a></p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Document proportions und Zeta
+<p><a href="img/typescatter_comedie-tragedie_1000-lemmata-all_500.svg"><img height="500" src="img/typescatter_comedie-tragedie_1000-lemmata-all_500.svg"></img></a></p>
 <p>(Beispiel: französische Theaterstücke)</p>
 </script>
 </section>
--->
-
-
-</section>
-<section>
 
 <section data-markdown>
 <script type="text/template">
-# 3. Maschinelles Lernen: Klassifikation
+## Eigenschaften von Zeta
+<br/>
+* Berücksichtigt indirekt die Verteilung (Segmentierung, Dokumenthäufigkeit) <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Favorisiert Wörter mittlerer Häufigkeit (keine Funktionswörter) <!-- .element: class="fragment" data-fragment-index="2" --> 
+* Favorisiert gleichmäßig verteilte Wörter (keine Namen) <!-- .element: class="fragment" data-fragment-index="3" -->
+* Es wird kein p-Wert oder Ähnliches ermittelt <!-- .element: class="fragment" data-fragment-index="4" --> 
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Klassifikation vs. Clustering
-* Klassifikation  <!-- .element: class="fragment" data-fragment-index="1" --> 
-	* Klassen sind vorher bekannt
-	* Drei Phasen: Lernen, Testen, Anwenden 
-	* Klassifizierte Lern- und Testdaten
-* Clustering <!-- .element: class="fragment" data-fragment-index="2" --> 
-	* Keine Klassen vorgegeben
-	* Nur eine Phase: Clusterbildung
-	* Cluster: Gruppe von ähnlichen Items
-	* Keine Annotation notwendig
+## PCA mit distinktiven Merkmalen
+<p><a href="img/threeway_pca.png"><img height="500" src="img/threeway_pca.png"></img></a></p>
+<p>(Beispiel: französische Theaterstücke)</p>
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Vorgehen bei der Klassifikation
-1. Vorbereitung <!-- .element: class="fragment" data-fragment-index="1" --> 
-2. Annotation <!-- .element: class="fragment" data-fragment-index="2" --> 
-3. Merkmalsgenerierung <!-- .element: class="fragment" data-fragment-index="3" --> 
-4. Trainingsphase ("classifier") <!-- .element: class="fragment" data-fragment-index="4" --> 
-5. Evaluationsphase <!-- .element: class="fragment" data-fragment-index="5" --> 
-6. Anwendungsphase <!-- .element: class="fragment" data-fragment-index="6" --> 
+## Hintergrund
+<br/>
+* Position der Tragikomödie relativ zu Komödie und Tragödie <!-- .element: class="fragment" data-fragment-index="1" --> 
+* Frage der Gattungen: "gute" Exemplare vs. Mischformen <!-- .element: class="fragment" data-fragment-index="2" --> 
 </script>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-## Ein Classifier: Support Vector Machines
-<p><img height="500" src="img/svm-2dims_alt.png"></img></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Beispiel: Gemälde und Epochen
-<p><img height="500" src="img/wikiart.png"></img></p>
-<p><https://www.wikiart.org/></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Eckdaten
-* Saleh & Elgammal: "Large-scale Classification of Fine-Art Paintings", 2016 <!-- .element: class="fragment" data-fragment-index="1" --> 
-* Bildsammlung: 63.691 Gemälde von Wikiart  <!-- .element: class="fragment" data-fragment-index="2" --> 
-* Klassen: 10 Epochenstile (bspw. Romantik, Neoklassik, Abstract Expressionism) <!-- .element: class="fragment" data-fragment-index="3" --> 
-* Einfache Merkmale (bspw. Farbwerte von Pixeln) und komplexe Merkmale (e.g. repräsentierte Objekte) <!-- .element: class="fragment" data-fragment-index="4" --> 
-* Performanz: F-Score 0.32 (vgl. die Baseline: 0.23) <!-- .element: class="fragment" data-fragment-index="5" --> 
-* Fehleranalyse: Abstract Expressionism vs. Action Painting <!-- .element: class="fragment" data-fragment-index="5" --> 
-
-</script>
-</section>
 
 
 
@@ -331,97 +187,12 @@ Three times a day for many months I had witnessed this performance, but custom h
 
 <section data-markdown>
 <script type="text/template">
-# 4. Maschinelles Lernen: Clustering
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Vieldimensionaler Vektorraum
-* vgl. Merkmals-Matrix
-* Nachteile: Informationsverlust ("bag of words")
-* Vorteile: bestimmte Berechnungen werden möglich
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Vorgehen beim Clustering
-1. Vorbereitung der Textsammlung <!-- .element: class="fragment" data-fragment-index="1" --> 
-2. Merkmals-Matrix (Types x Texte) <!-- .element: class="fragment" data-fragment-index="2" --> 
-3. Merkmals-Behandlung (Auswahl / Normalisierung) <!-- .element: class="fragment" data-fragment-index="3" --> 
-4. Distanzmaß => Distanzmatrix <!-- .element: class="fragment" data-fragment-index="4" --> 
-5. Clustering (=> "linkage matrix") <!-- .element: class="fragment" data-fragment-index="5" --> 
-6. Visualisierung (bspw. als Dendrogramm) <!-- .element: class="fragment" data-fragment-index="6" --> 
-7. Interpretation <!-- .element: class="fragment" data-fragment-index="7" --> 
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Verschiedene Distanzmaße
-<p><img height="500" src="img/vector-similarity.jpg"></img></p>
-<p></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Beispiel: Autorschaftsattribution
-* Französische Theaterstücke <!-- .element: class="fragment" data-fragment-index="1" --> 
-* Mehrere Autoren <!-- .element: class="fragment" data-fragment-index="2" --> 
-* Überwiegend Texte unstrittiger Autorschaft <!-- .element: class="fragment" data-fragment-index="3" --> 
-* Ein strittiger Text: "Dom Garcie" (Molière, evtl. Pierre Corneille) <!-- .element: class="fragment" data-fragment-index="4" --> 
-* Parameter: 2000 MFW, z-scores, Delta, Ward  <!-- .element: class="fragment" data-fragment-index="5" --> 
-</script>
-</section>
-
-
-<section data-markdown>
-<script type="text/template">
-## Ergebnis
-<p><a href="img/Abb4_Stylo-Dendrogramm.svg"><img height="500" src="img/Abb4_Stylo-Dendrogramm.svg"></img></a></p>
-<p></p>
-</script>
-</section>
-
-
-</section>
-<section>
-
-<section data-markdown>
-<script type="text/template">
-# Schluss
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Weitere quantitative Methoden
-* Topic Modeling <!-- .element: class="fragment" data-fragment-index="1" --> 
-* Netzwerkanalyse <!-- .element: class="fragment" data-fragment-index="2" --> 
-* "deep learning" / "word2vec" (neuronale Netze) <!-- .element: class="fragment" data-fragment-index="3" --> 
-* Sentiment Analysis <!-- .element: class="fragment" data-fragment-index="4" --> 
-* Allgemein: Natural Language Processing <!-- .element: class="fragment" data-fragment-index="5" --> 
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Lektüreempfehlungen
+## Lektüre-Empfehlungen
 <small>
 
-Kapitel zur Sitzung
-* "Quantitative Analyse", in: _Digital Humanities: Eine Einführung_, hg. von Fotis Jannidis, Hubertus Kohle und Malte Rehbein. Stuttgart: Metzler, 2017. <http://link.springer.com/book/10.1007/978-3-476-05446-3>
-
-Weiterführende Lektüre
-* Alpaydin, Ethem. Introduction to Machine Learning. 2nd ed. Cambridge MA: MIT Press, 2010.
-* Burrows, John. “‘Delta’: A Measure of Stylistic Difference and a Guide to Likely Authorship.” _Literary and Linguistic Computing_ 17, no. 3 (2002): 267–87. doi:10.1093/llc/17.3.267.
-* Jannidis, Fotis. “Methoden der computergestützten Textanalyse.” In _Methoden der literatur- und kulturwissenschaftlichen Textanalyse_, hg. von Ansgar Nünning und Vera Nünning, 109–32. Stuttgart & Weimar: Metzler, 2010.
-* Lijffijt, Jefrey et al. “Significance Testing of Word Frequencies in Corpora.” _Digital Scholarship in the Humanities_ 31, no. 2 (2014): 374–97. doi:10.1093/llc/fqu064.
-* Oakes, Michael P. Statistics for Corpus Linguistics. Edinburgh: Edinburgh Univ. Press, 1998.
-* Stamatatos, Efstathios. “A Survey of Modern Authorship Attribution Methods.” _Journal of the Association for Information Science and Technology_ 60, no. 3 (2009): 538–556. doi:10.1002/asi.v60:3.
-
+* Jefrey Lijffijt et al. “Significance Testing of Word Frequencies in Corpora.” _Digital Scholarship in the Humanities_ 31, no. 2 (2014): 374–97. doi:10.1093/llc/fqu064.
+* Michael P. Oakes. Statistics for Corpus Linguistics. Edinburgh: Edinburgh Univ. Press, 1998.
+* Christof Schöch: „Zeta für die kontrastive Analyse literarischer Texte. Theorie, Implementierung, Fallstudie“, in: <em>Quantitative Verfahren in der Literaturwissenschaft. Von einer Scientia Quantitatis zu den Digital Humanities</em>, ed. Andrea Albrecht, Sandra Richter, Marcel Lepper, Marcus Willand und Toni Bernhart, Berlin: de Gruyter (erscheint 2017).
 
 </small>
 </script>
