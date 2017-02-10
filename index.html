@@ -35,15 +35,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-markdown>
 <script type="text/template">
+<br/>
+<hr/>
+<br/>
 # Kontrastive Analyse<br/> mit Zeta
-<hr/>
-<br/>
-<br/>
-<p>Februar 2017</p>
 <br/>
 <hr/>
-<p>Christof Schöch<br/>(Computerphilologie / CLiGS, Universität Würzburg)</p>
-<p><img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img></p>
+<br/>
+<br/>
+<p>Christof Schöch, Würzburg</p>
+<p>Craheim Retreat, Feb. 2017</p>
 </script>
 </section>
 
@@ -59,6 +60,17 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Anwendungsbeispiel
 </script>
 </section>
+
+
+</section>
+<section>
+
+<section data-markdown>
+<script type="text/template">
+# Grundidee: Vergleich
+</script>
+</section>
+
 
 <section data-markdown>
 <script type="text/template">
@@ -86,6 +98,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 
+<section data-markdown>
+<script type="text/template">
+## Merkmalsmatrix
+<p><a href="img/merkmalsmatrix.png"><img height="500" src="img/merkmalsmatrix.png"></img></a></p>
+<p>(Conan Doyle-Sammlung)</p>
+</script>
+</section>
 
 <section data-markdown>
 <script type="text/template">
@@ -93,19 +112,32 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <br/>
 * Berücksichtigt die Verteilung nicht <!-- .element: class="fragment" data-fragment-index="1" --> 
     * t-Test berücksichtigt Standardabweichung, nimmt aber Normalverteilung an <!-- .element: class="fragment" data-fragment-index="2" --> 
-    * Rangsummentest berücksichtigt Verteilung, keine Annahme der Normalverteilung <!-- .element: class="fragment" data-fragment-index="3" --> 
+    * Rangsummentest berücksichtigt Verteilung, keine Annahme der Normalverteilung; weniger sensitiv <!-- .element: class="fragment" data-fragment-index="3" --> 
 * Es kann kein Signifikanztest berechnet werden <!-- .element: class="fragment" data-fragment-index="4" --> 
     * t-Test und Rangsummentest erlauben dies <!-- .element: class="fragment" data-fragment-index="5" --> 
-
 </script>
 </section>
 
 
 <section data-markdown>
 <script type="text/template">
-## Merkmalsmatrix
-<p><a href="img/merkmalsmatrix.png"><img height="500" src="img/merkmalsmatrix.png"></img></a></p>
-<p>(Conan Doyle-Sammlung)</p>
+## Vergleich verschiedener Maße 
+<br/>
+<p><a href="img/testing-matilda_Lijffijt.png"><img height="250" src="img/testing-matilda_Lijffijt.png"></img></a></p>
+<p><small>(Lijffit et al. 2014)</p></small>
+<p>("Matilda" im BNC; unterschiedlich bei m/w? (aber: ungleich verteilt)</p>
+</script>
+</section>
+
+
+
+
+</section>
+<section>
+
+<section data-markdown>
+<script type="text/template">
+# Zeta
 </script>
 </section>
 
@@ -166,17 +198,46 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 </section>
 
+</section>
+<section>
+
 <section data-markdown>
 <script type="text/template">
-## PCA mit distinktiven Merkmalen
+# Anwendungsbeispiel
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## PCA mit 50 distinktiven Merkmalen
 <p><a href="img/threeway_pca.png"><img height="500" src="img/threeway_pca.png"></img></a></p>
 <p>(Beispiel: französische Theaterstücke)</p>
 </script>
 </section>
 
+
 <section data-markdown>
 <script type="text/template">
-## Hintergrund
+## Boxplot der Verteilungen (PC1)
+<p><a href="img/pcboxplot_comedie-tragedie-tragicomedie_3000-lemmata-all-25.svg"><img height="500" src="img/pcboxplot_comedie-tragedie-tragicomedie_3000-lemmata-all-25.svg"></img></a></p>
+<p>(Beispiel: französische Theaterstücke)</p>
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## Vergleich: PCA mit 60 Topics
+<p><a href="img/topic-scatterplot-pc1-pc2.png"><img height="500" src="img/topic-scatterplot-pc1-pc2.png"></img></a></p>
+<p>(Beispiel: französische Theaterstücke)</p>
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## Zeta und Gattungen
 <br/>
 * Position der Tragikomödie relativ zu Komödie und Tragödie <!-- .element: class="fragment" data-fragment-index="1" --> 
 * Frage der Gattungen: "gute" Exemplare vs. Mischformen <!-- .element: class="fragment" data-fragment-index="2" --> 
@@ -198,7 +259,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 * Hoover, David L. “Teasing out Authorship and Style with T-Tests and Zeta.” In Digital Humanities Conference. London, 2010. http://dh2010.cch.kcl.ac.uk/academic-programme/abstracts/papers/html/ab-658.html.
 * Lijffijt, Jefrey et al. “Significance Testing of Word Frequencies in Corpora.” _Digital Scholarship in the Humanities_ 31, no. 2 (2014): 374–97. doi:10.1093/llc/fqu064.
 * Oakes, Michael P. Statistics for Corpus Linguistics. Edinburgh: Edinburgh Univ. Press, 1998.
-* Schöch, Christof: „Zeta für die kontrastive Analyse literarischer Texte. Theorie, Implementierung, Fallstudie“, in: <em>Quantitative Verfahren in der Literaturwissenschaft. Von einer Scientia Quantitatis zu den Digital Humanities</em>, ed. Andrea Albrecht, Sandra Richter, Marcel Lepper, Marcus Willand und Toni Bernhart, Berlin: de Gruyter (erscheint 2017).
 * Rayson, Paul, and R. Garside. “Comparing Corpora Using Frequency Profiling.” In Proceedings of the Workshop on Comparing Corpora, 1–6. Hong Kong: ACM, 2000.
 
 
